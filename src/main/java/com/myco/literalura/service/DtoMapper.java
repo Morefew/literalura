@@ -1,8 +1,12 @@
 package com.myco.literalura.service;
 
+
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.myco.literalura.model.LibroDTO;
+
 
 /**
  * project literalura
@@ -14,22 +18,45 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 public class DtoMapper implements IDtoMapper {
 
-    private ObjectMapper objectMapper =new ObjectMapper();
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
     public <T> T mapToDto(String json, Class<T> clase) {
         try {
-            return objectMapper.readValue(json,clase);
+            // Create a JsonNode to handle fields that need transformation
+            JsonNode jsonNode = objectMapper.readValue(json, JsonNode.class);
+
+            // If the DTO is LibroDTO, handle `idioma` conversion
+            if (clase == LibroDTO.class) {
+                JsonNode idiomas = jsonNode.get("languages");
+                if (idiomas.isArray() && !idiomas.isEmpty()) {
+                    ((ObjectNode) jsonNode).put("languages", idiomas.get(0).asText());
+                }
+
+                return objectMapper.convertValue(jsonNode, clase);
+            }
+
+        } catch (JsonProcessingException e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
+
+        try {
+            return objectMapper.readValue(json, clase);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
+
     }
 
     public JsonNode mapToJsonNode(String json) {
+        if (json == null || json.isEmpty()) {
+            throw new IllegalArgumentException("JSON data is null or empty");
+        }
         try {
-            return objectMapper.readValue(json, JsonNode.class);
+            return objectMapper.readTree(json);
         } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Failed to parse JSON", e);
         }
     }
 }

@@ -9,5 +9,5 @@ package com.myco.literalura.service;
  * @since 11/19/2024
  */
 public interface IDtoMapper {
-    <T> T mapToDto(String json, Class<T> clase);
+<T> T mapToDto(String json, Class<T> clase);
 }
