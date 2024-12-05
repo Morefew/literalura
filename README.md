@@ -15,8 +15,18 @@
 
 **Challenges Faced and Future Features:**
 
-The available source code does not provide information about specific challenges encountered during development or plans for future features.
+Working with complex JSON structures like those from the Gutendex API can
+present some difficulties. These might include:
+- Handling Nested Objects and Arrays: Navigating deeply nested JSON structures to access specific data points can become cumbersome. Jackson provides methods to traverse these structures, but it requires careful attention to the JSON hierarchy.
+- Dealing with Missing or Unexpected Data: Real-world APIs might not always return data in a consistent format. Jackson offers ways to handle optional fields and set default values when data is missing. Error handling and validation are crucial to prevent application crashes.
+- Performance Considerations:  Processing large JSON files can impact performance. Jackson has features for streaming JSON parsing to improve efficiency, but it might require code adjustments and optimization.
 
+Future Features:
+The current implementation of Literalura provides basic functionality for interacting with a book catalog. Here are some potential future features that could be implemented, possibly leveraging Jackson:
+- More Advanced Search Options: Allow users to search by author, genre, publication date, or keywords.
+- User Accounts and Preferences: Implement user accounts to enable saving personalized book lists, reading history, and recommendations.
+- Integration with Other Book APIs: Expand the catalog by integrating with additional book APIs to provide a wider selection.
+  
 ### **Table of Contents**
 
 *   Installation
