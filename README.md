@@ -100,7 +100,7 @@ Literalura provides a text-based menu-driven interface:
 ### **Credits**
 
 *   **Developer:** Morefew
-*   **API Used:** Gutendex API
+*   **API Used:** [Gutendex API](https://gutendex.com/)
 
 ### **License**
 
