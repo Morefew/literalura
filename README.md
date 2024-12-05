@@ -29,11 +29,11 @@ The current implementation of Literalura provides basic functionality for intera
   
 ### **Table of Contents**
 
-*   Installation
-*   How to Use
-*   Credits
-*   License
-*   Disclaimer of Warranty
+*   [Installation](Installation)
+*   [How to Use](How%20to%20Use)
+*   [Credits](Credits)
+*   [License](License)
+*   [Disclaimer of Warranty](Disclaimer%20of%20Warranty)
 
 ### **Installation**
 
