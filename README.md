@@ -30,10 +30,10 @@ The current implementation of Literalura provides basic functionality for intera
 ### **Table of Contents**
 
 *   [Installation](#Installation)
-*   [How to Use](#How%20to%20Use)
+*   [How to Use](#How-to-Use)
 *   [Credits](#Credits)
 *   [License](#License)
-*   [Disclaimer of Warranty](#Disclaimer%20of%20Warranty)
+*   [Disclaimer of Warranty](#Disclaimer-of-Warranty)
 
 ### **Installation**
 
